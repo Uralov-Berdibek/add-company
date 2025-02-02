@@ -1,50 +1,38 @@
-# React + TypeScript + Vite
+🚀 Проект: Управление компаниями (Company Management System)
+Это веб-приложение для управления компаниями, включающее функции авторизации, регистрации, просмотра, добавления, редактирования и удаления компаний.
+Приложение использует React (Vite), TypeScript, Ant Design, Axios и React Router.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📌 Основные возможности
+✅ Авторизация и регистрация
+✅ Просмотр списка компаний
+✅ Добавление новой компании
+✅ Редактирование информации о компании
+✅ Удаление компании с подтверждением
+✅ Защита маршрутов (редирект при отсутствии токена)
+✅ Использование .env для хранения API URL
 
-Currently, two official plugins are available:
+🚀 Установка и запуск
+1. Склонируйте репозиторий
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![1](https://github.com/user-attachments/assets/fda5afcb-d8fc-43f5-a8ae-d3d881e0fd4a)
+2. Установите зависимости
 
-## Expanding the ESLint configuration
+npm install  # или yarn install / pnpm install
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+3. Создайте .env файл
 
-- Configure the top-level `parserOptions` property like this:
+Создайте файл .env в корневой папке и добавьте API URL:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+VITE_API_URL=http://45.138.158.137:92/api
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+4. Запустите проект
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+npm run dev  # или yarn dev / pnpm dev
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Приложение будет доступно по адресу:
+
+👉 http://localhost:5173
+
+🔧 Технологии
+
+![2](https://github.com/user-attachments/assets/2ca586f3-9299-4027-bdd9-c53305a3d90f)
