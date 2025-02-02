@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Modal, Form, Input, Button, message } from 'antd';
 import axios from 'axios';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 interface CompanyModalProps {
   visible: boolean;
   onClose: () => void;
@@ -22,7 +24,7 @@ const CompanyModal: React.FC<CompanyModalProps> = ({
     if (companyData) {
       form.setFieldsValue({
         name: companyData.name,
-        count: companyData.count, // count maydonini to'g'ri o'rnatamiz
+        count: companyData.count,
       });
     } else {
       form.resetFields();
@@ -41,18 +43,18 @@ const CompanyModal: React.FC<CompanyModalProps> = ({
       const requestData = {
         id: companyData?.id,
         name: values.name,
-        count: values.count, // JSON formatini to'g'ri qilish
+        count: values.count,
       };
 
       if (companyData?.id) {
-        // Update existing company
-        await axios.put(`http://45.138.158.137:92/api/companies/update`, requestData, {
+        // Обновление компании
+        await axios.put(`${API_URL}/companies/update`, requestData, {
           headers: { Authorization: `Bearer ${token}` },
         });
         message.success('Компания успешно обновлена!');
       } else {
-        // Create new company
-        await axios.post('http://45.138.158.137:92/api/companies/add', requestData, {
+        // Создание новой компании
+        await axios.post(`${API_URL}/companies/add`, requestData, {
           headers: { Authorization: `Bearer ${token}` },
         });
         message.success('Компания успешно добавлена!');
@@ -86,7 +88,7 @@ const CompanyModal: React.FC<CompanyModalProps> = ({
 
         <Form.Item
           label='Количество сотрудников'
-          name='count' // Field nomi to'g'ri bo'lishi kerak
+          name='count'
           rules={[{ required: true, message: 'Введите количество сотрудников' }]}
         >
           <Input type='number' placeholder='Введите количество' />

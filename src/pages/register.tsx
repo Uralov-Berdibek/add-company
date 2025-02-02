@@ -4,13 +4,13 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const { Title } = Typography;
-
+const API_URL = import.meta.env.VITE_API_URL;
 const Register = () => {
   const navigate = useNavigate();
 
   const onFinish = async (values: any) => {
     try {
-      const response = await axios.post('http://45.138.158.137:92/api/auths/sign-up', values);
+      const response = await axios.post(`${API_URL}/auths/sign-up`, values);
       console.log('Registration successful:', response.data);
       message.success('Регистрация прошла успешно!');
 

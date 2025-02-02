@@ -16,6 +16,8 @@ interface Company {
   count: number;
 }
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const CompanyTable: React.FC = () => {
   const [data, setData] = useState<Company[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -37,7 +39,7 @@ const CompanyTable: React.FC = () => {
         return;
       }
 
-      const response = await axios.get('http://45.138.158.137:92/api/companies/get-all', {
+      const response = await axios.get(`${API_URL}/companies/get-all`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -84,7 +86,7 @@ const CompanyTable: React.FC = () => {
             return;
           }
 
-          await axios.delete(`http://45.138.158.137:92/api/companies/delete/by-id`, {
+          await axios.delete(`${API_URL}/companies/delete/by-id`, {
             headers: {
               Authorization: `Bearer ${token}`,
               'Content-Type': 'application/json',
